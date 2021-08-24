@@ -34,7 +34,6 @@ sudo mkdir -p /var/lib/firecracker-containerd/runtime
 sudo mkdir -p /etc/containerd/
 
 cd $ROOT
-git lfs pull
 
 DST=/usr/local/bin
 
@@ -46,7 +45,7 @@ done
 # rootfs image
 sudo cp $BINS/default-rootfs.img /var/lib/firecracker-containerd/runtime/
 # kernel image
-sudo curl -fsSL -o /var/lib/firecracker-containerd/runtime/hello-vmlinux.bin https://s3.amazonaws.com/spec.ccfc.min/img/hello/kernel/hello-vmlinux.bin
+sudo -E curl -fsSL -o /var/lib/firecracker-containerd/runtime/hello-vmlinux.bin https://s3.amazonaws.com/spec.ccfc.min/img/hello/kernel/hello-vmlinux.bin
 
 sudo cp $CONFIGS/config.toml /etc/firecracker-containerd/
 

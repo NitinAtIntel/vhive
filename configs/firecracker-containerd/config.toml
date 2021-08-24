@@ -1,6 +1,10 @@
 disabled_plugins = ["cri"]
 root = "/var/lib/firecracker-containerd/containerd"
 state = "/run/firecracker-containerd"
+[Service]
+Environment="HTTP_PROXY=http://proxy-chain.intel.com:911/"
+Environment="HTTPS_PROXY=http://proxy-chain.intel.com:912/"
+
 [grpc]
   address = "/run/firecracker-containerd/containerd.sock"
 [plugins]

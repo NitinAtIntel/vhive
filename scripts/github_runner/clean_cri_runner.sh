@@ -26,7 +26,8 @@ PWD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 STOCK_CONTAINERD=$1
 
-KUBECONFIG=/etc/kubernetes/admin.conf kn service delete --all
+KUBECONFIG=/etc/kubernetes/admin.conf 
+kn service delete --all
 if [ "$STOCK_CONTAINERD" == "stock-only" ]; then
     sudo kubeadm reset --cri-socket /run/containerd/containerd.sock -f
 else

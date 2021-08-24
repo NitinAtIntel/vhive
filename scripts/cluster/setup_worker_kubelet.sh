@@ -33,5 +33,9 @@ fi
 sudo sh -c 'cat <<EOF > /etc/systemd/system/kubelet.service.d/0-containerd.conf
 [Service]                                                 
 Environment="KUBELET_EXTRA_ARGS=--container-runtime=remote --runtime-request-timeout=15m --container-runtime-endpoint=unix://'${CRI_SOCK}'"
+Environment="http_proxy="
+Environment="HTTP_PROXY="
+Environment="https_proxy="
+Environment="HTTPS_PROXY="
 EOF'
 sudo systemctl daemon-reload
